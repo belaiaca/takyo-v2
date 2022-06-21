@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>xx</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style2.css">
+  <link rel="stylesheet" href="loader.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div id="app">
+    <div class="hero-bg" :style="{ backgroundImage: `url(${activeInfo.img})` }" :key="activeIndex"></div>
+    <div class="hero-title" :key="activeIndex">{{ activeInfo.name }}</div>
+
+    <div class="round">
+      <div class="item" :class="{ active: activeIndex === key }" @click="activeIndex = key" v-for="(el, key) in list"
+        :key="key" :style="{ transform: itemPosition[key] }">
+        <div class="inner">
+          <img :src="el.thumbImg" alt="">
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="hero-info" v-if="activeInfo" :key="activeIndex">
+      <div class="row">
+        <div class="title">name</div>
+        <div class="content">{{ activeInfo.name }}</div>
+      </div>
+      <div class="row">
+        <div class="title">type</div>
+        <div class="content">{{ activeInfo.type }}</div>
+      </div>
+      <div class="row">
+        <div class="title">description</div>
+        <div class="content desc">{{ activeInfo.desc }}</div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="loader-container">
+    <div id="load">
+      <div>@</div>
+      <div>O</div>
+      <div>Y</div>
+      <div>K</div>
+      <div>A</div>
+      <div>T</div>
+  
+    </div>
+
+  </div>
+  <!-- partial -->
+  <script src='https://unpkg.com/vue@3.2.22/dist/vue.global.js'></script>
+  <script src="./script.js"></script>
+  <script src="loader.js"></script>
+
+</body>
+
+</html>
