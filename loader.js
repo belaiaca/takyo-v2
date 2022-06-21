@@ -2,4 +2,4 @@ function showContent(){
     document.querySelector('.loader-container').classList.add('hidden')
 }
 
-setTimeout(showContent,2000)
+setTimeout(showContent,4000)
